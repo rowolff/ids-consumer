@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import { RadioButton } from '@idealo/ids-react'
 import styled from 'styled-components'
 
 const Wrapper = styled.p`
+  padding: 100px;
   display: flex;
   flex-direction: column;
 
@@ -32,29 +32,18 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <Wrapper>
-          {Object.keys(buttonGroup).map((buttonName) => (
-            <RadioButton
-              name={buttonName}
-              id={buttonName}
-              key={buttonName}
-              checked={select[buttonName]}
-              onChange={() => handleChange(buttonName)}
-              label={buttonName}
-            />
-          ))}
-        </Wrapper>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+      <Wrapper>
+        {Object.keys(buttonGroup).map((buttonName) => (
+          <RadioButton
+            name={buttonName}
+            id={buttonName}
+            key={buttonName}
+            checked={select[buttonName]}
+            onChange={() => handleChange(buttonName)}
+            label={buttonName}
+          />
+        ))}
+      </Wrapper>
     </div>
   )
 }
